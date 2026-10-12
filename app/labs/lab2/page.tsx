@@ -1,11 +1,20 @@
 import "./index.css";
-import ForegroundColors from "@/app/labs/lab2/ForegroundColors";
+import ForegroundColors from "./ForegroundColors";
 import BackgroundColors from "@/app/labs/lab2/BackgroundColors";
 import Borders from "@/app/labs/lab2/Borders";
 import BoxModel from "@/app/labs/lab2/BoxModel";
 import Margins from "@/app/labs/lab2/Margins";
 import Padding from "@/app/labs/lab2/Padding";
 import Corners from "@/app/labs/lab2/Corners";
+import Dimensions from "@/app/labs/lab2/Dimensions";
+import Display from "@/app/labs/lab2/Display";
+import Positions from "@/app/labs/lab2/Positions";
+import Zindex from "@/app/labs/lab2/Zindex";
+import Float from "./Float";
+import GridLayout from "@/app/labs/lab2/GridLayout";
+import Flex from "./Flex";
+import MediaQueriesDemo from "@/app/labs/lab2/MediaQueriesDemo";
+import ReactIconsSampler from "@/app/labs/lab2/ReactIconsSampler";
 
 export default function Lab2() {
     return (
@@ -111,6 +120,18 @@ export default function Lab2() {
             <Padding/>
             <BoxModel/>
             <Corners/>
+            <Dimensions />
+            <Display />
+            <Positions />
+            <Zindex />
+            <Float />
+            <GridLayout/>
+            <Flex/>
+            <MediaQueriesDemo />
+            <ReactIconsSampler />
+            <p>
+                <a href="/labs/lab2/tailwind">Open Tailwind CSS lab →</a>
+            </p>
         </div>
 
     );

@@ -230,6 +230,17 @@ p#wd-ai-id-selector {
     height: 75px;
 }
 
+.wd-dimension-custom {
+    width: 125px;
+    height: 100px;
+}
+
+.wd-ai-dimension {
+    width: 120px;
+    height: 60px;
+    background-color: yellow;
+}
+
 .wd-display-inline {
     display: inline;
     width: 150px;
@@ -263,6 +274,21 @@ p#wd-ai-id-selector {
     position: relative;
 }
 
+.wd-pos-relative-nudge-down-right {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+.wd-ai-pos-relative-nudge {
+    position: relative;
+    top: 15px;
+    right: 25px;
+}
+.wd-ai-pos-absolute-br {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
 .wd-pos-absolute-10-10 {
     position: absolute;
     top: 10px;
@@ -284,9 +310,26 @@ p#wd-ai-id-selector {
     right: 0px;
     bottom: 50%;
 }
+.wd-ai-pos-fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 8px 12px;
+    z-index: 1000;
+}
 
 .wd-zindex-bring-to-front {
     z-index: 10;
+}
+.wd-zindex-back {
+    position: absolute;
+    z-index: -1;
+}
+.wd-ai-zindex-top {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    z-index: 20;
 }
 .wd-rounded-corners-large {
     border-radius: 30px;
@@ -313,6 +356,15 @@ img.wd-float-right {
 }
 .wd-float-done {
     clear: both;
+}
+.wd-grid-col-third-page {
+    width: 33.3333%;
+    float: left;
+}
+
+.wd-grid-col-two-thirds-page {
+    width: 66.6667%;
+    float: left;
 }
 
 .wd-grid-row {
@@ -341,73 +393,4 @@ img.wd-float-right {
     /* Room for "Column 1" + 10px padding under border-box */
     width: 110px;
     flex-shrink: 0;
-}
-.wd-media-queries-demo {
-    background-color: green;
-    color: white;
-    padding: 1rem;
-}
-
-.wd-media-queries-demo li {
-    opacity: 0.55;
-    font-weight: normal;
-    text-decoration: none;
-}
-
-.wd-media-queries-demo li.wd-mq-rule-default {
-    opacity: 1;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-@media (min-width: 750px) and (max-width: 1000px) {
-    .wd-media-queries-demo {
-        background-color: yellow;
-        color: black;
-    }
-    /* Same specificity as the default highlight — must clear it here */
-    .wd-media-queries-demo li.wd-mq-rule-default {
-        opacity: 0.55;
-        font-weight: normal;
-        text-decoration: none;
-    }
-    .wd-media-queries-demo li.wd-mq-rule-750 {
-        opacity: 1;
-        font-weight: bold;
-        text-decoration: underline;
-    }
-}
-
-@media (min-width: 1000px) and (max-width: 1250px) {
-    .wd-media-queries-demo {
-        background-color: blue;
-        color: white;
-    }
-    .wd-media-queries-demo li.wd-mq-rule-default {
-        opacity: 0.55;
-        font-weight: normal;
-        text-decoration: none;
-    }
-    .wd-media-queries-demo li.wd-mq-rule-1000 {
-        opacity: 1;
-        font-weight: bold;
-        text-decoration: underline;
-    }
-}
-
-@media (min-width: 1250px) {
-    .wd-media-queries-demo {
-        background-color: red;
-        color: white;
-    }
-    .wd-media-queries-demo li.wd-mq-rule-default {
-        opacity: 0.55;
-        font-weight: normal;
-        text-decoration: none;
-    }
-    .wd-media-queries-demo li.wd-mq-rule-1250 {
-        opacity: 1;
-        font-weight: bold;
-        text-decoration: underline;
-    }
 }
