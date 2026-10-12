@@ -7,29 +7,40 @@ export default async function AssignmentEditor({
 }) {
     const { cid } = await params;
     return (
-        <div id="wd-assignments-editor">
-            <label htmlFor="wd-name">Assignment Name</label>
-            <br />
-            <br />
-            <input id="wd-name" defaultValue="A1 - ENV + HTML" />
-            <br />
-            <br />
-            <textarea
-                id="wd-description"
-                cols={45}
-                rows={10}
-                defaultValue="The assignment is available online Submit a link to the landing page of"
-            />
-            <br />
-            <br />
-            <table>
+        <div id="wd-assignments-editor" className="max-w-3xl space-y-6">
+            <div className="space-y-2">
+                <label htmlFor="wd-name" className="block text-sm font-medium text-neutral-700">
+                    Assignment Name
+                </label>
+                <input
+                    id="wd-name"
+                    defaultValue="A1 - ENV + HTML"
+                    className="w-full rounded border border-neutral-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                />
+            </div>
+            <div className="space-y-2">
+                <label htmlFor="wd-description" className="block text-sm font-medium text-neutral-700">
+                    Description
+                </label>
+                <textarea
+                    id="wd-description"
+                    rows={6}
+                    defaultValue="The assignment is available online Submit a link to the landing page of"
+                    className="w-full rounded border border-neutral-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                />
+            </div>
+            <table className="w-full max-w-xl border-separate border-spacing-y-4">
                 <tbody>
                     <tr>
                         <td align="right" valign="top">
                             <label htmlFor="wd-points">Points</label>
                         </td>
                         <td>
-                            <input id="wd-points" defaultValue={100} />
+                            <input
+                                id="wd-points"
+                                defaultValue={100}
+                                className="rounded border border-neutral-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                            />
                         </td>
                     </tr>
                     <tr>
@@ -112,12 +123,14 @@ export default async function AssignmentEditor({
                             <input id="wd-assign-to" defaultValue="Everyone" />
                             <br />
                             <br />
-                            <label htmlFor="wd-due-date">Due</label>
-                            <br />
+                            <label htmlFor="wd-due-date" className="mb-2 block text-sm font-medium text-neutral-700">
+                                Due Date
+                            </label>
                             <input
                                 type="date"
                                 id="wd-due-date"
                                 defaultValue="2024-05-13"
+                                className="rounded border border-neutral-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                             />
                             <br />
                             <br />
@@ -153,6 +166,16 @@ export default async function AssignmentEditor({
                     </tr>
                 </tbody>
             </table>
+            <div className="space-y-2">
+                <label htmlFor="wd-ai-editor-notes" className="block text-sm font-medium text-neutral-700">
+                    Sample notes
+                </label>
+                <textarea
+                    id="wd-ai-editor-notes"
+                    rows={4}
+                    className="w-full rounded border border-neutral-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                />
+            </div>
             <hr />
             <table align="right">
                 <tbody>
