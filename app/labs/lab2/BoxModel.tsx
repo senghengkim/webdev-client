@@ -16,7 +16,7 @@ export default function BoxModel() {
             <h3>box-sizing</h3>
             <div className="wd-box-sizing-demo">
                 <div className="wd-box-sizing-content">
-                    content-box: width 200px plus padding and border
+                    content-box: width 200px plus padding and border.
                 </div>
                 <div className="wd-box-sizing-border">
                     border-box: width 200px includes padding and border
