@@ -1,58 +1,48 @@
-
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "../../kambaz.css";
 
+const LINKS = [
+    { segment: "home", id: "wd-course-home-link", label: "Home" },
+    { segment: "modules", id: "wd-course-modules-link", label: "Modules" },
+    { segment: "piazza", id: "wd-course-piazza-link", label: "Piazza" },
+    { segment: "zoom", id: "wd-course-zoom-link", label: "Zoom" },
+    { segment: "assignments", id: "wd-course-assignments-link", label: "Assignments" },
+    { segment: "quizzes", id: "wd-course-quizzes-link", label: "Quizzes" },
+    { segment: "grades", id: "wd-course-grades-link", label: "Grades" },
+    { segment: "people/table", id: "wd-course-people-link", label: "People" },
+    { segment: "announcements", id: "wd-course-announcements-link", label: "Announcements" },
+] as const;
+
 export default function CourseNavigation({ cid }: { cid: string }) {
     const pathname = usePathname() ?? "";
-
-    const links = [
-        { label: "Home", path: "home", id: "wd-course-home-link" },
-        { label: "Modules", path: "modules", id: "wd-course-modules-link" },
-        { label: "Piazza", path: "piazza", id: "wd-course-piazza-link" },
-        { label: "Zoom", path: "zoom", id: "wd-course-zoom-link" },
-        { label: "Assignments", path: "assignments", id: "wd-course-assignments-link" },
-        { label: "Quizzes", path: "quizzes", id: "wd-course-quizzes-link" },
-        { label: "Grades", path: "grades", id: "wd-course-grades-link" },
-        { label: "People", path: "people", id: "wd-course-people-link" },
-    ];
+    const inCourse = pathname.startsWith(`/courses/${cid}`);
 
     return (
-        <div
-            id="wd-courses-navigation"
-            className="wd list-group rounded-none text-lg"
-            style={{ width: "140px", minWidth: "140px" }}
-        >
-            {links.map(({ label, path, id }) => {
-                const href = `/courses/${cid}/${path}`;
-                const active =
-                    pathname === href || pathname.startsWith(`${href}/`);
-
+        <div id="wd-courses-navigation" className="wd list-group rounded-none text-lg">
+            {LINKS.map(({ segment, id, label }) => {
+                const href = `/courses/${cid}/${segment}`;
+                const active = inCourse
+                    ? pathname === href ||
+                    (segment !== "home" && pathname.startsWith(href))
+                    : segment === "home";
                 return (
                     <Link
                         key={id}
                         href={href}
                         id={id}
-                        className={`list-group-item rounded-none ${
+                        className={
                             active
-                                ? "active border-l-4 border-l-black"
-                                : "border-0 text-red-600"
-                        }`}
+                                ? "list-group-item active border-0"
+                                : "list-group-item border-0 text-red-600"
+                        }
                     >
                         {label}
                     </Link>
                 );
             })}
-
-            <Link
-                href={`/courses/${cid}/home`}
-                id="wd-course-ai-link"
-                className="list-group-item rounded-none border-0 text-red-600"
-            >
-                Sample
-            </Link>
         </div>
     );
 }

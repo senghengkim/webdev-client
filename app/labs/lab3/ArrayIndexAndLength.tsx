@@ -1,24 +1,16 @@
-export default function AddingAndRemovingToFromArrays() {
+export default function ArrayIndexAndLength() {
     let numberArray1 = [1, 2, 3, 4, 5];
-    let stringArray1 = ["string1", "string2"];
-    let todoArray = [
-        <li key={1}>Buy milk</li>,
-        <li key={2}>Feed the pets</li>,
-    ];
-    numberArray1.push(6);
-    stringArray1.push("string3");
-    todoArray.push(<li key={3}>Walk the dogs</li>);
-    numberArray1.splice(2, 1);
-    stringArray1.splice(1, 1);
-    numberArray1.push(7);
-    numberArray1.splice(0, 1);
+    const length1 = numberArray1.length;
+    const index1 = numberArray1.indexOf(3);
+    const indexOf9 = numberArray1.indexOf(9);
+    const indexOf1 = numberArray1.indexOf(1);
     return (
-        <div id="wd-adding-removing-from-arrays">
-            <h4>Add/remove to/from arrays</h4>
-            numberArray1 = {numberArray1} <br />
-            stringArray1 = {stringArray1} <br />
-            Todo list:
-            <ol>{todoArray}</ol>
+        <div id="wd-array-index-and-length">
+            <h4>Array index and length</h4>
+            length1 = {length1} <br />
+            index1 = {index1} <br />
+            indexOf1 = {indexOf1} <br />
+            index of 9 = {indexOf9}
             <hr />
         </div>
     );
