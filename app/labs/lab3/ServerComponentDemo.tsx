@@ -21,7 +21,7 @@ export default function ServerComponentDemo() {
       <h2>Server Render Time</h2>
       <p>Rendered on server at: {serverRenderTime}</p>
       <h2>Server Information</h2>
-      <pre>44
+      <pre>
         {JSON.stringify({ arch, platform, nodeVersion, serverRenderTime, pid }, null, 2)}
       </pre>
       <h2>Filesystem Access Demo</h2>
