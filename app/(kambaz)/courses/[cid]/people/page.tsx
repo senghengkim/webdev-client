@@ -1,14 +1,10 @@
 import PeopleTable from "./table/page";
 
-export default function People({
-    params,
-}: {
-    params: Promise<{ cid: string }>;
-}) {
+export default function People() {
     return (
         <div id="wd-people">
             <h2>People</h2>
-            <PeopleTable params={params} />
+            <PeopleTable />
         </div>
     );
 }
