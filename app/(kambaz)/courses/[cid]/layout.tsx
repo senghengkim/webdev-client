@@ -1,37 +1,22 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { ReactNode, useState } from "react";
+import { useParams } from "next/navigation";
 import { FaAlignJustify } from "react-icons/fa6";
 import CourseNavigation from "./Navigation";
 import Breadcrumb from "./Breadcrumb";
 import { useCoursesStore } from "../../store/coursesStore";
-import { useAccountContext } from "../../account/AccountContext";
-import { useEnrollmentsStore } from "../../store/enrollmentsStore";
 
 export default function CoursesLayout({
-                                            children,
-                                        }: Readonly<{
+                                          children,
+                                      }: Readonly<{
     children: ReactNode;
 }>) {
     const { cid } = useParams();
     const courseId = typeof cid === "string" ? cid : "";
     const courses = useCoursesStore((state) => state.courses);
-    const enrollments = useEnrollmentsStore((state) => state.enrollments);
-    const { currentUser } = useAccountContext();
-    const router = useRouter();
-    const [showCourseNav, setShowCourseNav] = useState(true);
     const course = courses.find((c) => c._id === courseId);
-    const hasAccess = Boolean(
-        currentUser &&
-        enrollments.some((e) => e.user === currentUser._id && e.course === courseId),
-    );
-
-    useEffect(() => {
-        if (!hasAccess) router.replace("/dashboard");
-    }, [hasAccess, router]);
-
-    if (!hasAccess) return null;
+    const [showCourseNav, setShowCourseNav] = useState(true);
 
     return (
         <div id="wd-courses">
@@ -42,7 +27,6 @@ export default function CoursesLayout({
                     title="Toggle course navigation"
                 />
                 <Breadcrumb course={course} />
-                <span className="text-sm">({course?._id})</span>
             </h2>
             <hr className="my-3" />
             <div className="flex gap-4">
